@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  canix_db:
+    image: postgres:13.3
+    environment:
+      POSTGRES_USER: canix
+      POSTGRES_PASSWORD: pass123
+      POSTGRES_DB: canix_db
+    ports:
+      - 5432:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  canix-migrate:
+    build: .
+    depends_on:
+      - canix_db
+    command: sh -c "until nc -z canix_db 5432; do sleep 1; done && bundle exec db:create && bundle exec db:migrate"
+
+volumes:
+  db_data:

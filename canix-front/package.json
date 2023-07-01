@@ -1,0 +1,55 @@
+{
+  "name": "canix-front",
+  "version": "0.1.0",
+  "homepage": "/canix/",
+  "private": true,
+  "dependencies": {
+    "@babel/preset-react": "^7.13.13",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.6",
+    "@mui/styles": "^5.13.2",
+    "material-react-table": "^1.14.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-scripts": "5.0.1",
+    "uuid": "^9.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "lint": "eslint --fix --ext src/*.js src/**/*.js && prettier --write src/",
+    "test": "jest --verbose"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn test"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.20.0",
+    "eslint-plugin-react": "^7.22.0",
+    "husky": "^8.0.3",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "jest-fetch-mock": "^3.0.3",
+    "prettier": "^2.2.1"
+  }
+}

@@ -1,0 +1,31 @@
+name: Frontend Pipeline
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - canix-front/**
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn --cwd canix-front
+      - name: static analysis
+        run: yarn --cwd canix-front lint
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn --cwd canix-front
+      - name: unit tests
+        run: yarn --cwd canix-front test

@@ -1,0 +1,1 @@
+process.env.REACT_APP_CANIX_API_HOST = 'http://localhost:3001';
